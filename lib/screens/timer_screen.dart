@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sprintf/sprintf.dart';
+import 'package:flutter_timer/tools/util.dart';
 
 enum TimerStatus { running, paused, stopped, resting }
 
@@ -28,22 +27,6 @@ class _TimerScreenState extends State<TimerScreen> {
     print(_timerStatus.toString());
     _timer = WORK_SECONDS;
     _pomodoroCount = 0;
-  }
-
-  String secondsToString(int seconds) {
-    return sprintf('%02d:%02d', [seconds ~/ 60, seconds % 60]);
-  }
-
-  void showToast(String message) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 5,
-      backgroundColor: Colors.grey,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
   }
 
   void run() {
